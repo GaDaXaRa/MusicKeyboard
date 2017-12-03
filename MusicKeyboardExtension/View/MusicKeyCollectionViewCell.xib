@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MusicKeyCollectionViewCell" id="gTV-IL-0wX" customClass="MusicKeyCollectionViewCell" customModule="MusicKeyboard" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VUI-ym-YS4">
+                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jQM-5d-hxc">
+                                <rect key="frame" x="2" y="2" width="46" height="46"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="jQM-5d-hxc" firstAttribute="top" secondItem="VUI-ym-YS4" secondAttribute="top" constant="2" id="kXU-1W-cxn"/>
+                            <constraint firstAttribute="bottom" secondItem="jQM-5d-hxc" secondAttribute="bottom" constant="2" id="ucz-lJ-SHE"/>
+                            <constraint firstItem="jQM-5d-hxc" firstAttribute="leading" secondItem="VUI-ym-YS4" secondAttribute="leading" constant="2" id="ue6-8K-0o3"/>
+                            <constraint firstAttribute="trailing" secondItem="jQM-5d-hxc" secondAttribute="trailing" constant="2" id="vSw-Uy-CjH"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="VUI-ym-YS4" secondAttribute="bottom" id="Xs8-Gg-yyb"/>
+                <constraint firstItem="VUI-ym-YS4" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="do5-uK-2jX"/>
+                <constraint firstAttribute="trailing" secondItem="VUI-ym-YS4" secondAttribute="trailing" id="hUa-T2-92Z"/>
+                <constraint firstItem="VUI-ym-YS4" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="hVH-ee-7Tw"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <connections>
+                <outlet property="keyLabel" destination="jQM-5d-hxc" id="jZS-13-dmC"/>
+            </connections>
+        </collectionViewCell>
+    </objects>
+</document>
