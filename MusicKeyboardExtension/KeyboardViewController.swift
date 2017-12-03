@@ -14,6 +14,7 @@ class KeyboardViewController: UIInputViewController {
     @IBOutlet weak var keyboardCollection: UICollectionView!
     
     let keyboardDatasource = MusicKeysDatasource()
+    var keyboardSize: CGSize?
     
     var keyboardView: UIView!
     
@@ -26,6 +27,15 @@ class KeyboardViewController: UIInputViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadInterface()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        keyboardSize = view.frame.size
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        keyboardSize = size
     }
     
     override func textWillChange(_ textInput: UITextInput?) {
@@ -61,10 +71,14 @@ extension KeyboardViewController: UICollectionViewDataSource {
         cell.configure(with: keyboardDatasource.lines[indexPath.section][indexPath.row])
         return cell
     }
+    
 }
 
-extension KeyboardViewController: UICollectionViewDelegate {
+extension KeyboardViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: UIScreen.main.bounds.width / CGFloat(keyboardDatasource.lines[indexPath.section].count), height: 40)
+    }
 }
 
 extension KeyboardViewController {
