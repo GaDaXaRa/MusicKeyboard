@@ -12,7 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MusicKeyCollectionViewCell" id="gTV-IL-0wX" customClass="MusicKeyCollectionViewCell" customModule="MusicKeyboard" customModuleProvider="target">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MusicKeyCollectionViewCell" id="gTV-IL-0wX" customClass="MusicKeyCollectionViewCell" customModule="MusicKeyboardExtension" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -36,6 +36,11 @@
                             <constraint firstItem="jQM-5d-hxc" firstAttribute="leading" secondItem="VUI-ym-YS4" secondAttribute="leading" constant="2" id="ue6-8K-0o3"/>
                             <constraint firstAttribute="trailing" secondItem="jQM-5d-hxc" secondAttribute="trailing" constant="2" id="vSw-Uy-CjH"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="3"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
             </view>

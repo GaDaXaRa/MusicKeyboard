@@ -9,7 +9,7 @@
 import UIKit
 
 class KeyboardViewController: UIInputViewController {
-
+    
     @IBOutlet var nextKeyboardButton: UIButton!
     @IBOutlet weak var keyboardCollection: UICollectionView!
     
@@ -31,11 +31,8 @@ class KeyboardViewController: UIInputViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        keyboardSize = view.frame.size
-    }
-    
-    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        keyboardSize = size
+        keyboardView.frame = view.frame
+        keyboardCollection.reloadData()
     }
     
     override func textWillChange(_ textInput: UITextInput?) {
@@ -45,16 +42,14 @@ class KeyboardViewController: UIInputViewController {
     override func textDidChange(_ textInput: UITextInput?) {
         // The app has just changed the document's contents, the document context has been updated.
         
-        var textColor: UIColor
         let proxy = self.textDocumentProxy
         if proxy.keyboardAppearance == UIKeyboardAppearance.dark {
             textColor = UIColor.white
         } else {
             textColor = UIColor.black
         }
-//        self.nextKeyboardButton.setTitleColor(textColor, for: [])
     }
-
+    
 }
 
 extension KeyboardViewController: UICollectionViewDataSource {
@@ -87,6 +82,9 @@ extension KeyboardViewController {
         keyboardView = keyboardNib.instantiate(withOwner: self, options: nil)[0] as! UIView
         view.addSubview(keyboardView)
         view.backgroundColor = keyboardView.backgroundColor
+        keyboardView.translatesAutoresizingMaskIntoConstraints = true
+        keyboardView.center = CGPoint(x: view.bounds.midX, y: view.bounds.midY)
+        keyboardView.autoresizingMask = [UIViewAutoresizing.flexibleLeftMargin, UIViewAutoresizing.flexibleRightMargin, UIViewAutoresizing.flexibleTopMargin, UIViewAutoresizing.flexibleBottomMargin]
         setUp()
     }
     
