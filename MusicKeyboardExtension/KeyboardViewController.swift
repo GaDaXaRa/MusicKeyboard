@@ -40,14 +40,7 @@ class KeyboardViewController: UIInputViewController {
     }
     
     override func textDidChange(_ textInput: UITextInput?) {
-        // The app has just changed the document's contents, the document context has been updated.
         
-        let proxy = self.textDocumentProxy
-        if proxy.keyboardAppearance == UIKeyboardAppearance.dark {
-            textColor = UIColor.white
-        } else {
-            textColor = UIColor.black
-        }
     }
     
 }
@@ -73,6 +66,10 @@ extension KeyboardViewController: UICollectionViewDelegate, UICollectionViewDele
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: UIScreen.main.bounds.width / CGFloat(keyboardDatasource.lines[indexPath.section].count), height: 40)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        (textDocumentProxy as UIKeyInput).insertText(keyboardDatasource.lines[indexPath.section][indexPath.row])
     }
 }
 
